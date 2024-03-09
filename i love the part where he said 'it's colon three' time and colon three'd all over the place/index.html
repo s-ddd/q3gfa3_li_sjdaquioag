@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNG + Breakdown</title>
+</head>
+<script>
+        function rng() {
+            // number generator
+            var randomNumber = Math.floor(Math.random()*1001);
+            document.getElementById("rngoutput").innerHTML = "Randomly generated number: " + randomNumber;
+
+            // breakdown randomly generated number
+            var ones = randomNumber % 10;
+            var tens = Math.floor((randomNumber / 10) % 10)*10;
+            var hundreds = Math.floor(randomNumber / 100)*100;
+            document.getElementById("rngbreakdown").innerHTML = "Breakdown: " + hundreds + ", " + tens + ", " + ones;
+
+            // get current time (easiest part of the entire exercise LOL)
+            var theDateTodayIs = new Date();
+            document.getElementById("datetoday").innerHTML = "Current date and time: " + theDateTodayIs;
+        }
+    </script>
+    <body>
+        <button onclick="rng()">Generate Random Number (includes breakdown and date today)</button>
+        <div id="rngoutput"></div>
+        <div id="rngbreakdown"></div>
+        <div id="datetoday"></div>
+    </body>
+</html>
